@@ -11,6 +11,10 @@ using Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Authentication;
+using System;
+using Microsoft.AspNetCore.Components;
+using System.Net.Http;
+using System.Linq;
 
 namespace MyWebApplication
 {
@@ -26,6 +30,25 @@ namespace MyWebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddServerSideBlazor();
+
+            services.AddRazorPages();
+
+            // Server Side Blazor doesn't register HttpClient by default
+            if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
+            {
+                // Setup HttpClient for server side in a client side compatible fashion
+                services.AddScoped<HttpClient>(s =>
+                {
+                    // Creating the URI helper needs to wait until the JS Runtime is initialized, so defer it.      
+                    var uriHelper = s.GetRequiredService<NavigationManager>();
+                    return new HttpClient
+                    {
+                        BaseAddress = new Uri(uriHelper.BaseUri)
+                    };
+                });
+            }
+
             services.AddControllers();
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -48,6 +71,8 @@ namespace MyWebApplication
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseBlazorFrameworkFiles();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -57,6 +82,8 @@ namespace MyWebApplication
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/_Host");
             });
         }
     }

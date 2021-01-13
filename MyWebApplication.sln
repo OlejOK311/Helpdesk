@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebApplication", "MyWebApplication\MyWebApplication.csproj", "{FED07A64-8FBB-4D37-BDCB-62DEEB4179CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyWebApplication", "MyWebApplication\MyWebApplication.csproj", "{FED07A64-8FBB-4D37-BDCB-62DEEB4179CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{9DAE859B-39A5-4CA6-B39F-BB64A778998A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{9DAE859B-39A5-4CA6-B39F-BB64A778998A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{DC7D899A-9915-4CAC-A5A7-DB6925666A7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{DC7D899A-9915-4CAC-A5A7-DB6925666A7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFData", "EFData\EFData.csproj", "{A2D9004C-3719-4802-9E7D-D69594546E36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFData", "EFData\EFData.csproj", "{A2D9004C-3719-4802-9E7D-D69594546E36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{9D4D2ABE-87E1-48CE-939F-140D7D023CF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{9D4D2ABE-87E1-48CE-939F-140D7D023CF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebClient", "BlazorWebClient\BlazorWebClient.csproj", "{42F096C6-982B-4531-946C-827FEFE652F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{9D4D2ABE-87E1-48CE-939F-140D7D023CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D4D2ABE-87E1-48CE-939F-140D7D023CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D4D2ABE-87E1-48CE-939F-140D7D023CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F096C6-982B-4531-946C-827FEFE652F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F096C6-982B-4531-946C-827FEFE652F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F096C6-982B-4531-946C-827FEFE652F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F096C6-982B-4531-946C-827FEFE652F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
