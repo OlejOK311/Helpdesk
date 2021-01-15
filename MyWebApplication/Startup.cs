@@ -73,6 +73,8 @@ namespace MyWebApplication
 
             app.UseBlazorFrameworkFiles();
 
+            app.UseStaticFiles();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
