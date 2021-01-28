@@ -9,7 +9,7 @@ using EFData;
 
 namespace Application.HelpdeskOrder.Add
 {
-    public class AddHelpdeskHandler : IRequestHandler<AddHelpdeskQuery, AddHelpdeskResponse>
+    public class AddHelpdeskHandler : IRequestHandler<AddHelpdeskQuery>
     {
         private readonly DataContext _context;
 
@@ -17,18 +17,19 @@ namespace Application.HelpdeskOrder.Add
         {
             _context = context;
         }
-        public Task<AddHelpdeskResponse> Handle(AddHelpdeskQuery request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(AddHelpdeskQuery request, CancellationToken cancellationToken)
         {
             var helpdeskOrder = new Domain.HelpdeskOrder
             {
-                Number = request.number,
-                Title = "abc",
-                Description = "abc"
+                Number = request.Number,
+                Title = request.Title,
+                Description = request.Description
             };
 
             _context.HelpdeskOrders.Add(helpdeskOrder);
             _context.SaveChanges();
-            return null;
+
+            return await Unit.Task;
         }
     }
 }

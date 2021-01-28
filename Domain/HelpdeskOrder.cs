@@ -8,7 +8,6 @@ namespace Domain
         public string Number { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public byte[] Attachements { get; set; }
         public DateTime Created { get; set; }
         public int CreatedBy { get; set; }
         public DateTime Modified { get; set; }

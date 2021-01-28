@@ -55,7 +55,13 @@ namespace EFData.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Number = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    Created = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    Modified = table.Column<DateTime>(nullable: false),
+                    ModifiedBy = table.Column<int>(nullable: false),
+                    Category = table.Column<int>(nullable: false),
+                    Priority = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
