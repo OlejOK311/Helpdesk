@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Application.HelpdeskOrder.Get
+namespace Application.HelpdeskOrder.GetList
 {
     public class GetListHelpdeskResponse
     {

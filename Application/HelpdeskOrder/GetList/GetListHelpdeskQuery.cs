@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Application.HelpdeskOrder.Get
+namespace Application.HelpdeskOrder.GetList
 {
     public class GetListHelpdeskQuery : IRequest<GetListHelpdeskResponse>
     {

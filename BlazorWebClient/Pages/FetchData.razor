@@ -5,7 +5,7 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (forecasts == null)
+@if (helpdeskOrders == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -14,20 +14,18 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>Number</th>
+                <th>Title</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var helpdeskOrder in helpdeskOrders)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@helpdeskOrder.Number</td>
+                    <td>@helpdeskOrder.Title</td>
+                    <td>@helpdeskOrder.Description</td>
                 </tr>
             }
         </tbody>
@@ -35,21 +33,38 @@ else
 }
 
 @code {
-    private WeatherForecast[] forecasts;
+    private HelpdeskOrder[] helpdeskOrders;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("api/WeatherForecast/WeatherForecasts");
+        var helpdeskQuery = new HelpdeskQuery()
+        {
+            Page = 1,
+            PageSize = 10
+        };
+
+        var response = await Http.PostAsync("api/helpdesk/getlisthelpdesk", );
+
+
     }
 
-    public class WeatherForecast
+    public class HelpdeskOrder
     {
-        public DateTime Date { get; set; }
+        public int Id { get; set; }
+        public string Number { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Created { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime Modified { get; set; }
+        public int ModifiedBy { get; set; }
+        public int Category { get; set; }
+        public int Priority { get; set; }
+    }
 
-        public int TemperatureC { get; set; }
-
-        public string Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    public class HelpdeskQuery
+    {
+        public int Page;
+        public int PageSize;
     }
 }

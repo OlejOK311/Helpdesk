@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.HelpdeskOrder.Get
+namespace Application.HelpdeskOrder.GetList
 {
-    class GetListHelpdeskHandler : IRequestHandler<GetListHelpdeskQuery, GetListHelpdeskResponse>
+    public class GetListHelpdeskHandler : IRequestHandler<GetListHelpdeskQuery, GetListHelpdeskResponse>
     {
         private readonly DataContext _context;
 
